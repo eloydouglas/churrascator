@@ -41,4 +41,8 @@ export const SubmitButton = Styled.button`
     text-shadow: white;
     border: none;
     border-radius: 12px;
+
+    &:hover{
+        background-color:#333333;
+    }
 `;
