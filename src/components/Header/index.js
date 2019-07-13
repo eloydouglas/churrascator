@@ -4,12 +4,11 @@ import * as Styled from './styles';
 
 const Header = () => (
     <Styled.Container>
+        <Styled.HeaderBoxContainer/>
         <Styled.HeaderBox>
-            <Styled.TopHeaderBox>
-                <Styled.Title>
-                    Agenda de churras
-                </Styled.Title>
-            </Styled.TopHeaderBox>
+            <Styled.Title>
+                Agenda de Churras
+            </Styled.Title>
         </Styled.HeaderBox>
     </Styled.Container>
 
