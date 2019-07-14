@@ -1,17 +1,28 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 import * as Styled from './styles';
 
-const ChurrasListItem = ({ date, title, totalValue }) => {
+const ChurrasListItem = ({id, date, description, totalValue, totalInvited, guestList, selectChurras, history}) => {
+    
+    const handleClick = () => {
+        selectChurras({date, description, totalValue, totalInvited, guestList});
+        history.push(`/churras/${id}`);
+    }
+
     return(    
-        <Styled.Container>
+        <Styled.Container onClick={()=>handleClick()}>
             <Styled.Date>{date}</Styled.Date>
-            <Styled.Title>{title}</Styled.Title>
-            <Styled.InfoContainer>
-                <Styled.TotalValue>12</Styled.TotalValue>
-                <Styled.TotalInvited>R$ 150</Styled.TotalInvited>
-            </Styled.InfoContainer>
+            <Styled.Title>{description}</Styled.Title>
+                <Styled.TotalInvited>
+                    <Styled.ColoredPeople/>
+                    {totalInvited}
+                </Styled.TotalInvited>   
+                <Styled.TotalValue>
+                    <Styled.ColoredAttachMoney/>
+                    R$ {totalValue}
+                </Styled.TotalValue>
         </Styled.Container>)
 };
 
-export default ChurrasListItem;
+export default withRouter(ChurrasListItem);

@@ -1,7 +1,7 @@
 
 const styleDefaults = {
     themeColor:'#ff6600',
-    themeColorDark:'',
+    themeColorDark:'#bf4d00',
     headerHeight:'20vh',
     headerBackgroundHeight:'30vh'
 };
