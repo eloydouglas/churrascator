@@ -4,16 +4,18 @@ import {connect} from 'react-redux';
 import * as Styled from './styles';
 import ChurrasListItem from '../../components/ChurrasListItem';
 import { setChurras } from '../../store/actions/churras';
+import { showModal } from '../../store/actions/general';
 
 const mapStateToProps = state => ({
   churrasList:state.churras.churrasList
 });
 
 const mapDispatchToProps = dispatch => ({
-  selectChurras: churras => dispatch(setChurras(churras))
+  selectChurras: churras => dispatch(setChurras(churras)),
+  newChurras: () => dispatch(showModal('newChurras'))
 });
 
-const ChurrasList = ({churrasList, selectChurras}) => {
+const ChurrasList = ({churrasList, selectChurras, newChurras}) => {
 
   useEffect(()=>{
 
@@ -34,7 +36,7 @@ const ChurrasList = ({churrasList, selectChurras}) => {
             selectChurras={selectChurras}
           />
         ))}
-        <Styled.AddButtonContainer>
+        <Styled.AddButtonContainer onClick={()=>newChurras()}>
           <Styled.ColoredAdd/>
           Criar Churras
         </Styled.AddButtonContainer>
