@@ -27,7 +27,7 @@ const Churras = ({match, selectedChurras}) => {
             <Styled.RightContainer>
               <Styled.TotalInvited>
                   <Styled.ColoredPeople/>
-                  {churras.totalInvited}
+                  {churras.totalGuests}
               </Styled.TotalInvited>   
               <Styled.TotalValue>
                   <Styled.ColoredAttachMoney/>
@@ -36,7 +36,7 @@ const Churras = ({match, selectedChurras}) => {
             </Styled.RightContainer>
           </Styled.InfoContainer>
           <Styled.GuestList>
-            {churras.guestList.map(guest => (
+            {churras.guests.map(guest => (
                 <GuestListItem
                   name={guest.name}
                   value={guest.value}

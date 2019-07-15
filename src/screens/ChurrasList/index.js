@@ -3,23 +3,26 @@ import {connect} from 'react-redux';
 
 import * as Styled from './styles';
 import ChurrasListItem from '../../components/ChurrasListItem';
-import { setChurras } from '../../store/actions/churras';
+import { setChurras, fetchChurraslist } from '../../store/actions/churras';
 import { showModal } from '../../store/actions/general';
 
 const mapStateToProps = state => ({
-  churrasList:state.churras.churrasList
+  churrasList: state.churras.churrasList,
 });
 
 const mapDispatchToProps = dispatch => ({
   selectChurras: churras => dispatch(setChurras(churras)),
-  newChurras: () => dispatch(showModal('newChurras'))
+  newChurras: () => dispatch(showModal('newChurras')),
+  fetchChurraslist: () => dispatch(fetchChurraslist())
 });
 
-const ChurrasList = ({churrasList, selectChurras, newChurras}) => {
+const ChurrasList = ({churrasList, selectChurras, newChurras, fetchChurraslist}) => {
 
-  useEffect(()=>{
-
-  },[]);
+  useEffect(()=> {
+    if(!churrasList){
+      fetchChurraslist();
+    };
+  },[churrasList]);
 
   return (
     <Styled.Container>
@@ -31,8 +34,8 @@ const ChurrasList = ({churrasList, selectChurras, newChurras}) => {
             date={churras.date}
             description={churras.description}
             totalValue={churras.totalValue}
-            totalInvited={churras.totalInvited}
-            guestList={churras.guestList}
+            totalGuests={churras.totalGuests}
+            guests={churras.guests}
             selectChurras={selectChurras}
           />
         ))}

@@ -16,11 +16,13 @@ export const Container = Styled.li`
 `;
 
 export const Date = Styled.h2`
+    font-size:1.4em;
     margin: 0;
     width:100%;
 `;
 
 export const Title = Styled.h3`
+    overflow:hidden;
     margin: 0;
     margin-bottom: 30px
     width:100%;

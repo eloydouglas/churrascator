@@ -1,4 +1,5 @@
-import { combineReducers, createStore } from 'redux';
+import { combineReducers, createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 import churras from './reducers/churras';
 import general from './reducers/general';
 
@@ -8,4 +9,7 @@ const store = combineReducers({
     general
 });
 
-export default createStore(store);
+export default createStore(
+    store,
+    applyMiddleware(thunk)    
+);

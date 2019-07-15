@@ -3,10 +3,10 @@ import { withRouter } from 'react-router-dom';
 
 import * as Styled from './styles';
 
-const ChurrasListItem = ({id, date, description, totalValue, totalInvited, guestList, selectChurras, history}) => {
+const ChurrasListItem = ({id, date, description, totalValue, totalGuests, guests, selectChurras, history}) => {
     
     const handleClick = () => {
-        selectChurras({date, description, totalValue, totalInvited, guestList});
+        selectChurras({date, description, totalValue, totalGuests, guests});
         history.push(`/churras/${id}`);
     }
 
@@ -16,11 +16,11 @@ const ChurrasListItem = ({id, date, description, totalValue, totalInvited, guest
             <Styled.Title>{description}</Styled.Title>
                 <Styled.TotalInvited>
                     <Styled.ColoredPeople/>
-                    {totalInvited}
+                    {totalGuests}
                 </Styled.TotalInvited>   
                 <Styled.TotalValue>
                     <Styled.ColoredAttachMoney/>
-                    R$ {totalValue}
+                    R${totalValue}
                 </Styled.TotalValue>
         </Styled.Container>)
 };

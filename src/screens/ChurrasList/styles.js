@@ -8,15 +8,14 @@ export const Container = Styled.div`
     height: calc(100vh - ${styleDefaults.headerHeight});
     background-color: white;
     width:100%;
-    
 `;
 
 export const ChurrasListBox = Styled.ul`
-    padding:0;
+    padding-left: 0;
     position: relative;
     list-style-type: none;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(40vw, auto));    
+    grid-template-columns: repeat(auto-fill, minmax(40vw, auto));
 `;
 
 export const AddButtonContainer = Styled.li`
