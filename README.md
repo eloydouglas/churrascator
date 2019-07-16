@@ -8,9 +8,9 @@ A coding challenge/event handler app.
 
 - Set up your env variables creating a .env file in the backend folder withe the following content:
 
-NODE_ENV=development
-PORT=4242
-DB_URI=**Place here your database link**
+NODE_ENV=development<br />
+PORT=4242<br />
+DB_URI=**Place here your database link**<br />
 
 We'ŕe set! Now you can run ```yarn start``` in the root folder and try the app!
 
