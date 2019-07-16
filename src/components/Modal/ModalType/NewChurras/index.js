@@ -1,22 +1,19 @@
 import React,{useState} from 'react'
 import {connect} from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 import {createChurras} from '../../../../store/actions/churras';
 
 import * as Styled from './styles';
 
-const mapDispatchToProps = dispatch => ({
-    createChurras: churras => dispatch(createChurras(churras))
+const mapDispatchToProps = (dispatch, ownProps) => ({
+    createChurras: churras => dispatch(createChurras(churras, ownProps))
 });
 
-const NewChurras = ({createChurras}) => {
+const NewChurras = ({createChurras, history}) => {
     const [ description, setDescription ] = useState("");
     const [ note, setNote ] = useState("");
     const [ date, setDate ] = useState("");
-
-    const today = () => {
-
-    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -28,7 +25,6 @@ const NewChurras = ({createChurras}) => {
             description,
             note
         })
-
     };
 
     return (<Styled.Container>
@@ -36,7 +32,7 @@ const NewChurras = ({createChurras}) => {
                 <form onSubmit={e => {handleSubmit(e)}}>
                     <Styled.InputContainer>
                         <Styled.Label>Quando?</Styled.Label>
-                        <Styled.Date required type="date" onChange={e=>{setDate(e.target.value)}}/>
+                        <Styled.Date min={new Date().toISOString().split('T')[0]} required type="date" onChange={e=>{setDate(e.target.value)}}/>
                     </Styled.InputContainer>
                     <Styled.InputContainer>
                         <Styled.Label>Descrição</Styled.Label>
@@ -53,4 +49,4 @@ const NewChurras = ({createChurras}) => {
             </Styled.Container>)
 }
 
-export default connect(null, mapDispatchToProps)(NewChurras);
+export default withRouter(connect(null, mapDispatchToProps)(NewChurras));

@@ -7,14 +7,15 @@ import * as Styled from './styles';
 import ModalType from './ModalType';
 
 const mapStateToProps = state => ({
-    modalType: state.general.modalType
+    modalType: state.general.modalType,
+    optParams: state.general.optParams
 });
 
 const mapDispatchToProps = dispatch => ({
     dismiss: () => dispatch(dismissModal())
 });
 
-const Modal = ({ modalType, dismiss }) => {
+const Modal = ({ modalType, dismiss, optParams }) => {
 
     return (
         <React.Fragment>
@@ -22,7 +23,7 @@ const Modal = ({ modalType, dismiss }) => {
             <Styled.Container>
                 <Styled.ContentBox>
                     <Styled.ColoredClose onClick={()=>dismiss()}/>
-                    <ModalType modalType={modalType}/>
+                    <ModalType modalType={modalType} optParams={optParams}/>
                 </Styled.ContentBox>
             </Styled.Container>
         </React.Fragment>

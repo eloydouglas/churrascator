@@ -18,7 +18,7 @@ const AppRouter = ({showModal}) => (
         {showModal && <Modal/>}
         <Header/>
         <Switch>
-            <Route path="/login" exact component={Login}/>
+            <Route path="/" exact component={Login}/>
             <Route path="/churraslist" exact component={ChurrasList}/>
             <Route path="/churras/:id" exact component={Churras}/>
         </Switch>

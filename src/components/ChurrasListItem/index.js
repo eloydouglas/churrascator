@@ -3,24 +3,24 @@ import { withRouter } from 'react-router-dom';
 
 import * as Styled from './styles';
 
-const ChurrasListItem = ({id, date, description, totalValue, totalGuests, guests, selectChurras, history}) => {
+const ChurrasListItem = ({selectChurras, history, ...churras}) => {
     
     const handleClick = () => {
-        selectChurras({date, description, totalValue, totalGuests, guests});
-        history.push(`/churras/${id}`);
+        selectChurras(churras);
+        history.push(`/churras/${churras._id}`);
     }
 
     return(    
         <Styled.Container onClick={()=>handleClick()}>
-            <Styled.Date>{date}</Styled.Date>
-            <Styled.Title>{description}</Styled.Title>
+            <Styled.Date>{churras.date}</Styled.Date>
+            <Styled.Title>{churras.description}</Styled.Title>
                 <Styled.TotalInvited>
                     <Styled.ColoredPeople/>
-                    {totalGuests}
+                    {churras.totalGuests}
                 </Styled.TotalInvited>   
                 <Styled.TotalValue>
                     <Styled.ColoredAttachMoney/>
-                    R${totalValue}
+                    R${churras.totalValue}
                 </Styled.TotalValue>
         </Styled.Container>)
 };

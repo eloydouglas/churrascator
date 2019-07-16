@@ -21,7 +21,7 @@ export const Label = Styled.label`
 export const Input = Styled.input`
     margin-top: 5px;
     height: 30px;
-    width: 80vw;
+    width: ${props => props.width || '80vw'};
     border: 1px solid gray;
     border-radius: 4px;
     padding: 5px;
@@ -30,32 +30,21 @@ export const Input = Styled.input`
     }
 `;
 
-export const Date = Styled.input`
+export const Checkbox = Styled.input`
     margin-top: 5px;
-    height: 30px;
-    width: 150px;
+    height: 25px;
+    width: 25px;
     border: 1px solid gray;
-    border-radius: 4px;
+    border-radius: 50%;
     padding: 5px;
-    &:focus{
-        border-color: black;
-    }
-`;
-
-export const TextArea = Styled.textarea`
-    border: 1px solid gray;
-    border-radius: 4px;
-    margin-top: 5px;
-    max-width: 70vw;
-    max-height: 60vh;
-    min-width: 80vw;
-    min-height: 80px;
+    float:left;
     &:focus{
         border-color: black;
     }
 `;
 
 export const SubmitButton = Styled.button`
+    clear:both;
     background-color: black;
     width: 120px;
     height: 30px;

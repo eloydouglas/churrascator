@@ -6,3 +6,8 @@ export const showModal = (modalType) => ({
     type: 'SHOW_MODAL',
     modalType
 });
+
+export const removeGuest = (guest) => ({
+    type: 'REMOVE_GUEST',
+    guest
+});

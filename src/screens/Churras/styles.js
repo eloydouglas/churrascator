@@ -1,5 +1,5 @@
 import Styled from 'styled-components';
-import { People, AttachMoney } from 'styled-icons/material';
+import { People, AttachMoney, AddCircleOutline } from 'styled-icons/material';
 
 import styleDefaults from '../../shared/styleDefaults';
 
@@ -8,6 +8,7 @@ export const Container = Styled.div`
     height: calc(100vh - ${styleDefaults.headerHeight});
     background-color: white;
     width:100%;
+    margin:auto;
 `;
 
 export const InfoBox = Styled.div`
@@ -21,7 +22,7 @@ export const InfoBox = Styled.div`
 `;
 
 export const InfoContainer = Styled.div`
-    margin-bottom:10px;
+    margin-bottom:5px;
 `;
 
 export const LeftContainer = Styled.div`
@@ -66,3 +67,30 @@ export const ColoredAttachMoney = Styled(AttachMoney)`
 export const GuestList = Styled.ul`
     padding:0;
 `
+
+export const AddButtonContainer = Styled.li`
+    clear: both;
+    padding: 0;
+    border-radius: 3px;
+    margin: 0;
+    float:left;
+
+    &:hover{
+        color: ${styleDefaults.themeColorDark};
+    }
+`;
+
+export const Note = Styled.p`
+    clear:both;
+    word-break: break-all;
+    color: #4d4d4d;
+`;
+
+export const ColoredAdd = Styled(AddCircleOutline)`
+    border-radius: 50%;
+    background-color: white;
+    margin-right:10px;
+    width:30px;
+    height:30px;
+    color: ${styleDefaults.themeColor};
+`;

@@ -3,11 +3,13 @@ import {connect} from 'react-redux';
 
 import * as Styled from './styles';
 import ChurrasListItem from '../../components/ChurrasListItem';
+import BackButton from '../../components/BackButton';
 import { setChurras, fetchChurraslist } from '../../store/actions/churras';
 import { showModal } from '../../store/actions/general';
 
 const mapStateToProps = state => ({
   churrasList: state.churras.churrasList,
+  shouldUpdateList: state.churras.shouldUpdateList
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -16,27 +18,23 @@ const mapDispatchToProps = dispatch => ({
   fetchChurraslist: () => dispatch(fetchChurraslist())
 });
 
-const ChurrasList = ({churrasList, selectChurras, newChurras, fetchChurraslist}) => {
+const ChurrasList = ({churrasList, shouldUpdateList, selectChurras, newChurras, fetchChurraslist}) => {
 
   useEffect(()=> {
-    if(!churrasList){
+    if(!churrasList || shouldUpdateList){
       fetchChurraslist();
     };
-  },[churrasList]);
+  },[churrasList, shouldUpdateList]);
 
   return (
     <Styled.Container>
+      <BackButton/>
       <Styled.ChurrasListBox>
         {churrasList && churrasList.map(churras => (
           <ChurrasListItem
-            id={churras._id}
             key={churras._id}
-            date={churras.date}
-            description={churras.description}
-            totalValue={churras.totalValue}
-            totalGuests={churras.totalGuests}
-            guests={churras.guests}
             selectChurras={selectChurras}
+            {...churras}
           />
         ))}
         <Styled.AddButtonContainer onClick={()=>newChurras()}>
