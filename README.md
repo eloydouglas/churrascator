@@ -6,7 +6,7 @@ A coding challenge/event handler app.
 - Clone the repository and run ```yarn setup``` at the root folder
 - Set up a MongoDb server (I use [Atlas](https://www.mongodb.com/cloud/atlas))
 
-- Set up your env variables creating a .env file in the backend folder withe the following content:
+- Set up your env variables creating a .env file in the backend folder with the following content:
 
 NODE_ENV=development<br />
 PORT=4242<br />
