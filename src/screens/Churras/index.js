@@ -26,7 +26,7 @@ const Churras = ({match, selectedChurras, getChurras, addGuest}) => {
     }else{
       getChurras(match.params.id);
     }
-  },[selectedChurras]);
+  },[selectedChurras, match.params.id, getChurras]);
   
   return (<Styled.Container>
       <BackButton/>

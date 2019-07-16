@@ -35,9 +35,9 @@ const churras = (state = INITIAL_STATE, action) => {
                 shouldUpdateList: true,
                 selectedChurras: {
                     ...state.selectedChurras,
-                    totalValue: sumValue(state.selectedChurras.guests.filter(guest => guest._id != action.guest._id)),
+                    totalValue: sumValue(state.selectedChurras.guests.filter(guest => guest._id !== action.guest._id)),
                     totalGuests: state.selectedChurras.guests.length - 1,
-                    guests: state.selectedChurras.guests.filter(guest => guest._id != action.guest._id)
+                    guests: state.selectedChurras.guests.filter(guest => guest._id !== action.guest._id)
                 }
             };
         default: return state;

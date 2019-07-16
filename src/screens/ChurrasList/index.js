@@ -24,7 +24,7 @@ const ChurrasList = ({churrasList, shouldUpdateList, selectChurras, newChurras, 
     if(!churrasList || shouldUpdateList){
       fetchChurraslist();
     };
-  },[churrasList, shouldUpdateList]);
+  },[churrasList, shouldUpdateList, fetchChurraslist]);
 
   return (
     <Styled.Container>
