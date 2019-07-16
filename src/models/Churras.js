@@ -17,14 +17,19 @@ const ChurrasSchema = new Schema(
         type: String,
         },
     totalValue:{
-        type: Number
+        type: Number,
+        default: 0
     },
     totalGuests:{
-        type: Number
+        type: Number,
+        default: 0
     },
-    guests: [{ type: Schema.Types.ObjectId, ref: 'Guest' }]
+    guests: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Guest'
+    }]
   },
   { timestamps: true }
 );
 
-module.exports = exports = mongoose.model('Churras', ChurrasSchema);
+module.exports = exports = mongoose.model('Churras', ChurrasSchema, 'churras');
