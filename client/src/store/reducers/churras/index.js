@@ -29,7 +29,6 @@ const churras = (state = INITIAL_STATE, action) => {
                 }
             };
         case 'REMOVE_GUEST_FROM_LIST':
-            console.log(action)
             return {
                 ...state,
                 shouldUpdateList: true,
