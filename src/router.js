@@ -1,19 +1,28 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import Login from './screens/Login';
 import ChurrasList from './screens/ChurrasList';
 import Churras from './screens/Churras';
 
 import Header from './components/Header';
+import Modal from './components/Modal';
 
-const AppRouter = () => (
-    <Switch>
+const mapStateToProps = state => ({
+    showModal: state.general.showModal
+});
+
+const AppRouter = ({showModal}) => (
+    <BrowserRouter>
+        {showModal && <Modal/>}
         <Header/>
-        <Route path="/login" exact component={Login}/>
-        <Route path="/churraslist" exact component={ChurrasList}/>
-        <Route path="/churras" exact component={Churras}/>
-    </Switch>
+        <Switch>
+            <Route path="/" exact component={Login}/>
+            <Route path="/churraslist" exact component={ChurrasList}/>
+            <Route path="/churras/:id" exact component={Churras}/>
+        </Switch>
+    </BrowserRouter>
 );
 
-export default AppRouter;
+export default connect(mapStateToProps, null)(AppRouter);
