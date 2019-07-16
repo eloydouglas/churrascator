@@ -1,0 +1,14 @@
+{
+  "name": "churrascator",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Douglas Castro <eloydouglas00@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "setup": "concurrently \"cd client && yarn \" \"cd backend && yarn\"", 
+    "start": "concurrently \"cd client && yarn start \" \"cd backend && yarn start && rs\""
+  },
+  "dependencies": {
+    "concurrently": "^4.1.0"
+  }  
+}
